@@ -53,8 +53,6 @@ for (int iCount = 0; iCount < 9; iCount++)
                 Console.WriteLine("Please enter a valid input by typing the column letter followed by the row number (I.E: A1)");
                 p1guess = Console.ReadLine().ToUpper();
             }
-
-
         }
 
         if (p1guess == "A1" && grid[0][0] == "-")
@@ -99,12 +97,8 @@ for (int iCount = 0; iCount < 9; iCount++)
             iCount--;
         }
 
-
         board.printBoard(grid);
 
-        //grid[0][1] = "x";
-        //Console.Write(B1);
-        //Console.WriteLine(grid[0][1]);
         winner = board.checkWinner(grid);
         if (winner != "-")
         {
@@ -129,10 +123,7 @@ for (int iCount = 0; iCount < 9; iCount++)
                     Console.WriteLine("Please enter a valid input by typing the column letter followed by the row number (I.E: A1)");
                     p2guess = Console.ReadLine().ToUpper();
                 }
-
-
             }
-
 
             if (p2guess == "A1" && grid[0][0] == "-")
             {
@@ -185,20 +176,20 @@ for (int iCount = 0; iCount < 9; iCount++)
 
         }
     }
-    if (iCount == 9 && winner == "-")
-    {
-        Console.WriteLine("Draw! No one won");
-    }
 
 }
+if (winner == "-")
+{
+    Console.WriteLine("Draw! There is no winner and only losers.");
+}
+else
+{
+    Console.WriteLine(winner);
+}
 
-Console.WriteLine(winner);
 
-
-// Print the board by calling the method in the supporting class
+// Print the final board
 board.printBoard(grid);
 
-//Check for a winnner by calling the method in the supporting class, and notify the players 
-//when a win has occurred and which player won the game
 
 
