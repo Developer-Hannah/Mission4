@@ -1,6 +1,5 @@
 ﻿
-//Board class
-//printBoard([[], [], []]) method
+
 
 // Create an array to hold each of three lines of the grid
 using System.Diagnostics.Tracing;
@@ -31,17 +30,17 @@ Console.WriteLine("Please enter your selection by typing the column letter follo
 
 board.printBoard(grid);
 
+// ensure that the number of turns does not go beyound 9
 for (int iCount = 0; iCount < 9; iCount++)
 {
     // Ask each player in turn for their choice 
-
-
     if (iCount == 0 || iCount == 2 || iCount == 4 || iCount == 6 || iCount == 8)
     {
         Console.WriteLine("Player 1 please take your turn");
         p1guess = Console.ReadLine().ToUpper();
         guessValidation = false;
 
+        // make sure player 1's user input is valid
         while (guessValidation == false)
         {
             if (acceptableInputs.Contains(p1guess))
@@ -55,6 +54,7 @@ for (int iCount = 0; iCount < 9; iCount++)
             }
         }
 
+        // assign an x to game board in correllation with player 1's input
         if (p1guess == "A1" && grid[0][0] == "-")
         {
             grid[0][0] = "x";
@@ -93,12 +93,15 @@ for (int iCount = 0; iCount < 9; iCount++)
         }
         else
         {
+            // display message and redo player 1's turn if they choose a position on game board that has already been chosen
             Console.WriteLine("That spot is taken");
             iCount--;
         }
 
+        // call the printBoard function to print the game board with updated position placements
         board.printBoard(grid);
 
+        // call the winner function to check for winner and end game if applicable
         winner = board.checkWinner(grid);
         if (winner != "-")
         {
@@ -111,9 +114,9 @@ for (int iCount = 0; iCount < 9; iCount++)
         {
             Console.WriteLine("Player 2 please take your turn");
             p2guess = Console.ReadLine().ToUpper();
-
             guessValidation = false;
 
+            // make sure player 2's user input is valid
             while (guessValidation == false)
             {
                 if (acceptableInputs.Contains(p2guess))
@@ -125,6 +128,7 @@ for (int iCount = 0; iCount < 9; iCount++)
                 }
             }
 
+            // assign an o to game board in correllation with player 2's input
             if (p2guess == "A1" && grid[0][0] == "-")
             {
                 grid[0][0] = "o";
@@ -163,11 +167,14 @@ for (int iCount = 0; iCount < 9; iCount++)
             }
             else
             {
+                // display message and redo player 1's turn if they choose a position on game board that has already been chosen
                 Console.WriteLine("That spot is taken");
                 iCount--;
             }
 
+            // call the winner function to check for winner and end game if applicable
             winner = board.checkWinner(grid);
+            // call the printBoard function to print the game board with updated position placements
             board.printBoard(grid);
             if (winner != "-")
             {
@@ -178,10 +185,12 @@ for (int iCount = 0; iCount < 9; iCount++)
     }
 
 }
+// call winner funchtion to check for draw
 if (winner == "-")
 {
     Console.WriteLine("Draw!");
 }
+// call winner funchtion to diplay the name of winner
 else
 {
     Console.WriteLine(winner);
