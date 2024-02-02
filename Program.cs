@@ -18,9 +18,9 @@ grid[2] = new string[] { "-", "-", "-" };
 string[] possibleGuesses = new string[9];
 string p1guess = "";
 string p2guess = "";
-string winner;
 bool guessValidation = false;
 Board board = new Board();
+string winner = board.checkWinner(grid);
 string[] acceptableInputs = { "A1", "B1", "C1", "A2", "B2", "C2", "A3", "B3", "C3" };
 
 // Welcome the user
@@ -183,25 +183,19 @@ for (int iCount = 0; iCount < 9; iCount++)
                 iCount--;
             }
 
+            winner = board.checkWinner(grid);
             board.printBoard(grid);
 
-            winner = board.checkWinner(grid);
-
-            if (winner == "x")
-            {
-                Console.WriteLine("Player 1 wins!!");
-                iCount = 9;
-            }
-            if (winner == "o")
-            {
-                Console.WriteLine("Player 2 wins!!");
-                iCount = 9;
-            }
         }
+    }
+    if (iCount == 9 && winner == "-")
+    {
+        Console.WriteLine("Draw! No one won");
     }
 
 }
 
+Console.WriteLine(winner);
 
 
 // Print the board by calling the method in the supporting class
