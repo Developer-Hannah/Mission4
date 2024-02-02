@@ -106,15 +106,8 @@ for (int iCount = 0; iCount < 9; iCount++)
         //Console.Write(B1);
         //Console.WriteLine(grid[0][1]);
         winner = board.checkWinner(grid);
-
-        if (winner == "x")
+        if (winner != "-")
         {
-            Console.WriteLine("Player 1 wins!!");
-            iCount = 9;
-        }
-        if (winner == "o")
-        {
-            Console.WriteLine("Player 2 wins!!");
             iCount = 9;
         }
     }
@@ -185,6 +178,10 @@ for (int iCount = 0; iCount < 9; iCount++)
 
             winner = board.checkWinner(grid);
             board.printBoard(grid);
+            if (winner != "-")
+            {
+                iCount = 9;
+            }
 
         }
     }
