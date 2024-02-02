@@ -73,7 +73,7 @@ namespace Mission4
 
             // Check for winning across the top-right to bottom-left diagonal
             string[] diagonal2 = new string[3];
-            for (int i = 2; i < boardLayout[0].Length; i--)
+            for (int i = 2; i >= 0; i--)
             {
                 diagonal2[i] = boardLayout[i][i];
             }
