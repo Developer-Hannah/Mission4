@@ -1,10 +1,14 @@
 ﻿
+//Board class
+//printBoard([[], [], []]) method
+
+// Create an array to hold each of three lines of the grid
 using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using Mission4;
 
-// // Create an array to hold each of three lines of the grid & initialize array
+// initialize array
 string[][] grid = new string[3][];
 grid[0] = new string[] { "-", "-", "-" };
 grid[1] = new string[] { "-", "-", "-" };
@@ -27,11 +31,10 @@ Console.WriteLine("Please enter your selection by typing the column letter follo
 
 board.printBoard(grid);
 
-// Make sure the number of turns does not go beyound 9
 for (int iCount = 0; iCount < 9; iCount++)
 {
     // Ask each player in turn for their choice 
-    
+
 
     if (iCount == 0 || iCount == 2 || iCount == 4 || iCount == 6 || iCount == 8)
     {
