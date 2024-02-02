@@ -177,7 +177,7 @@ for (int iCount = 0; iCount < 9; iCount++)
 }
 if (winner == "-")
 {
-    Console.WriteLine("Draw! There is no winner and only losers.");
+    Console.WriteLine("Draw!");
 }
 else
 {
