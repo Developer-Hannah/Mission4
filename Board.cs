@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,10 +37,10 @@ namespace Mission4
             for (int i = 0; i < boardLayout.Length; i++)
             {
                 if (checkRowCol(boardLayout[i], "o")) {
-                    return "o";
+                    return "Player 2 wins!";
                 } else if (checkRowCol(boardLayout[i], "x"))
                 {
-                    return "x";
+                    return "Player 1 wins!";
                 }
             }
 
@@ -49,9 +50,9 @@ namespace Mission4
                 string[] row = [boardLayout[0][i], boardLayout[1][i], boardLayout[2][i]];
                 if (checkRowCol(row, "o"))
                 {
-                    return "o";
+                    return "Player 2 wins!";
                 } else if (checkRowCol(row, "x")) {
-                    return "x";
+                    return "Player 1 wins!";
                 }
             }
 
@@ -64,11 +65,11 @@ namespace Mission4
 
             if (checkRowCol(diagonal1, "o"))
             {
-                return "o";
+                return "Player 2 wins!";
             }
             else if (checkRowCol(diagonal1, "x"))
             {
-                return "x";
+                return "Player 1 wins!";
             }
 
             // Check for winning across the top-right to bottom-left diagonal
@@ -80,11 +81,11 @@ namespace Mission4
 
             if (checkRowCol(diagonal2, "o"))
             {
-                return "o";
+                return "Player 2 wins!";
             }
             else if (checkRowCol(diagonal2, "x"))
             {
-                return "x";
+                return "Player 1 wins!";
             }
 
             // If noone won yet, return -
