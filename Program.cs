@@ -29,10 +29,7 @@ Console.WriteLine("Welcome to the game! Player 1 is Xs and player 2 is Os");
 // Give user guideance
 Console.WriteLine("Please enter your selection by typing the column letter followed by the row number (I.E: A1) ");
 
-Console.WriteLine("   A, B, C");
-Console.WriteLine("1: -, -, -");
-Console.WriteLine("2: -, -, -");
-Console.WriteLine("3: -, -, -");
+board.printBoard(grid);
 
 for (int iCount = 0; iCount < 9; iCount++)
 {
